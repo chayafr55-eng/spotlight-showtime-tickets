@@ -4,7 +4,7 @@ import { actions, fmtDate, useCurrentUser, useStore } from "@/lib/store";
 import { charge, formatCard, TEST_CARDS } from "@/lib/payment";
 
 export const Route = createFileRoute("/checkout/$id")({
-  validateSearch: (s: Record<string, unknown>) => ({ qty: Math.max(1, Number(s.qty) || 1) }),
+  validateSearch: (s: Record<string, unknown>) => ({ qty: Math.max(1, Number(s["qty"]) || 1) }),
   head: () => ({ meta: [{ title: "תשלום – טיקסה" }, { name: "description", content: "תשלום מאובטח על הכרטיסים." }, { property: "og:title", content: "תשלום – טיקסה" }, { property: "og:description", content: "תשלום על כרטיסים." }] }),
   component: Checkout,
 });
