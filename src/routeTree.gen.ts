@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountRouteImport } from './routes/account'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as CheckoutIdRouteImport } from './routes/checkout.$id'
+import { Route as ConfirmationBookingIdRouteImport } from './routes/confirmation.$bookingId'
+import { Route as EditIdRouteImport } from './routes/edit.$id'
+import { Route as EventsIdRouteImport } from './routes/events.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutIdRoute = CheckoutIdRouteImport.update({
+  id: '/checkout/$id',
+  path: '/checkout/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConfirmationBookingIdRoute = ConfirmationBookingIdRouteImport.update({
+  id: '/confirmation/$bookingId',
+  path: '/confirmation/$bookingId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EditIdRoute = EditIdRouteImport.update({
+  id: '/edit/$id',
+  path: '/edit/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsIdRoute = EventsIdRouteImport.update({
+  id: '/events/$id',
+  path: '/events/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/checkout/$id': typeof CheckoutIdRoute
+  '/confirmation/$bookingId': typeof ConfirmationBookingIdRoute
+  '/edit/$id': typeof EditIdRoute
+  '/events/$id': typeof EventsIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/checkout/$id': typeof CheckoutIdRoute
+  '/confirmation/$bookingId': typeof ConfirmationBookingIdRoute
+  '/edit/$id': typeof EditIdRoute
+  '/events/$id': typeof EventsIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/checkout/$id': typeof CheckoutIdRoute
+  '/confirmation/$bookingId': typeof ConfirmationBookingIdRoute
+  '/edit/$id': typeof EditIdRoute
+  '/events/$id': typeof EventsIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/account'
+    | '/login'
+    | '/signup'
+    | '/checkout/$id'
+    | '/confirmation/$bookingId'
+    | '/edit/$id'
+    | '/events/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/account'
+    | '/login'
+    | '/signup'
+    | '/checkout/$id'
+    | '/confirmation/$bookingId'
+    | '/edit/$id'
+    | '/events/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/account'
+    | '/login'
+    | '/signup'
+    | '/checkout/$id'
+    | '/confirmation/$bookingId'
+    | '/edit/$id'
+    | '/events/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRoute
+  LoginRoute: typeof LoginRoute
+  SignupRoute: typeof SignupRoute
+  CheckoutIdRoute: typeof CheckoutIdRoute
+  ConfirmationBookingIdRoute: typeof ConfirmationBookingIdRoute
+  EditIdRoute: typeof EditIdRoute
+  EventsIdRoute: typeof EventsIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout/$id': {
+      id: '/checkout/$id'
+      path: '/checkout/$id'
+      fullPath: '/checkout/$id'
+      preLoaderRoute: typeof CheckoutIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/confirmation/$bookingId': {
+      id: '/confirmation/$bookingId'
+      path: '/confirmation/$bookingId'
+      fullPath: '/confirmation/$bookingId'
+      preLoaderRoute: typeof ConfirmationBookingIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/edit/$id': {
+      id: '/edit/$id'
+      path: '/edit/$id'
+      fullPath: '/edit/$id'
+      preLoaderRoute: typeof EditIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/$id': {
+      id: '/events/$id'
+      path: '/events/$id'
+      fullPath: '/events/$id'
+      preLoaderRoute: typeof EventsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRoute: AccountRoute,
+  LoginRoute: LoginRoute,
+  SignupRoute: SignupRoute,
+  CheckoutIdRoute: CheckoutIdRoute,
+  ConfirmationBookingIdRoute: ConfirmationBookingIdRoute,
+  EditIdRoute: EditIdRoute,
+  EventsIdRoute: EventsIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
