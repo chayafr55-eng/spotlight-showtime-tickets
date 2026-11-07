@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { AuthCard } from "@/components/AuthCard";
-import { actions } from "@/lib/store";
+import { actions, GUEST_USER } from "@/lib/store";
 
 export const Route = createFileRoute("/login")({
   head: () => ({ meta: [{ title: "התחברות – טיקסה" }, { name: "description", content: "התחברו לחשבון טיקסה שלכם." }, { property: "og:title", content: "התחברות – טיקסה" }, { property: "og:description", content: "התחברו לחשבון טיקסה." }] }),
@@ -21,6 +21,11 @@ function Login() {
         {err && <p className="text-sm text-destructive">{err}</p>}
         <button className="btn-primary w-full">התחברות</button>
       </form>
+      <div className="mt-4 rounded-lg border border-border p-3 text-center text-sm text-muted-foreground">
+        <p className="mb-2">משתמש אורח לכניסה מהירה:</p>
+        <p dir="ltr">{GUEST_USER.email} / {GUEST_USER.password}</p>
+        <button type="button" className="mt-2 text-primary" onClick={() => { setEmail(GUEST_USER.email); setPassword(GUEST_USER.password); setErr(""); }}>מילוי אוטומטי</button>
+      </div>
       <p className="mt-6 text-center text-sm text-muted-foreground">אין לכם חשבון? <Link to="/signup" className="text-primary">הרשמה</Link></p>
     </AuthCard>
   );

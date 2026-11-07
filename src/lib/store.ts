@@ -25,6 +25,9 @@ const seed: State = {
   users: [], session: null, bookings: [],
 };
 
+export const GUEST_USER: User = { email: "guest@tixa.com", name: "אורח", password: "guest1234" };
+seed.users = [GUEST_USER];
+
 const KEY = "tixa-state-v1";
 let state: State = seed;
 let loaded = false;
@@ -34,6 +37,9 @@ function load() {
   if (loaded || typeof window === "undefined") return;
   loaded = true;
   try { const raw = localStorage.getItem(KEY); if (raw) state = { ...seed, ...JSON.parse(raw) }; } catch { /* ignore */ }
+  // תמיד לוודא שמשתמש האורח קיים (גם אם המצב השמור לא כולל אותו)
+  const others = state.users.filter((u) => u.email !== GUEST_USER.email);
+  state = { ...state, users: [GUEST_USER, ...others] };
 }
 function set(fn: (s: State) => State) {
   load();
