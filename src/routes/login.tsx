@@ -20,6 +20,13 @@ function Login() {
         <input className="field" type="password" placeholder="סיסמה" required value={password} onChange={(e) => setPassword(e.target.value)} />
         {err && <p className="text-sm text-destructive">{err}</p>}
         <button className="btn-primary w-full">התחברות</button>
+        <button
+          type="button"
+          className="w-full rounded-full border border-border py-3 font-semibold text-foreground transition hover:bg-white/5"
+          onClick={() => { const r = actions.login(GUEST_USER.email, GUEST_USER.password); if (r) setErr(r); else nav({ to: "/account" }); }}
+        >
+          כניסה כאורח
+        </button>
       </form>
       <div className="mt-4 rounded-lg border border-border p-3 text-center text-sm text-muted-foreground">
         <p className="mb-2">משתמש אורח לכניסה מהירה:</p>
