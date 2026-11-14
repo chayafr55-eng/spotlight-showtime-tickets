@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { actions, useStore, type EventItem } from "@/lib/store";
+import { actions, GENRES, useStore, type EventItem } from "@/lib/store";
 import ev1 from "@/assets/ev1.jpg";
 
 export const Route = createFileRoute("/edit/$id")({
@@ -12,7 +12,7 @@ function EditEvent() {
   const { id } = Route.useParams();
   const nav = useNavigate();
   const existing = useStore((s) => s.events.find((e) => e.id === id));
-  const blank: EventItem = { id: "", title: "", kind: "סרט", venue: "", date: "", price: 50, seats: 100, image: ev1, description: "" };
+  const blank: EventItem = { id: "", title: "", kind: "סרט", genre: "מדע בדיוני", venue: "", date: "", price: 50, seats: 100, image: ev1, description: "" };
   const [f, setF] = useState<EventItem>(existing ?? blank);
   useEffect(() => { if (existing) setF(existing); }, [existing?.id]);
   const up = <K extends keyof EventItem>(k: K, v: EventItem[K]) => setF({ ...f, [k]: v });
@@ -29,8 +29,11 @@ function EditEvent() {
         <label className="md:col-span-2 space-y-2"><span className="text-sm text-muted-foreground">שם האירוע</span>
           <input className="field" required value={f.title} onChange={(e) => up("title", e.target.value)} /></label>
         <label className="space-y-2"><span className="text-sm text-muted-foreground">סוג</span>
-          <select className="field" value={f.kind} onChange={(e) => up("kind", e.target.value as EventItem["kind"])}>
+          <select className="field" value={f.kind} onChange={(e) => { const kind = e.target.value as EventItem["kind"]; setF({ ...f, kind, genre: GENRES[kind][0] }); }}>
             <option>סרט</option><option>מופע</option></select></label>
+        <label className="space-y-2"><span className="text-sm text-muted-foreground">סגנון</span>
+          <select className="field" value={f.genre} onChange={(e) => up("genre", e.target.value as EventItem["genre"])}>
+            {GENRES[f.kind].map((g) => <option key={g}>{g}</option>)}</select></label>
         <label className="space-y-2"><span className="text-sm text-muted-foreground">מועד</span>
           <input className="field" type="datetime-local" required value={f.date} onChange={(e) => up("date", e.target.value)} /></label>
         <label className="md:col-span-2 space-y-2"><span className="text-sm text-muted-foreground">מקום</span>
