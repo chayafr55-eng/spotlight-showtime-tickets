@@ -4,6 +4,7 @@ import ev2 from "@/assets/ev2.jpg";
 import ev3 from "@/assets/ev3.jpg";
 import ev4 from "@/assets/ev4.jpg";
 import lionKing from "@/assets/lion-king.jpg"; // CC BY-SA 4.0, Giles Laurent – ראו src/assets/CREDITS.md
+import heidi from "@/assets/heidi.jpg"; // CC BY-SA 4.0, Evelyne Scherer – ראו src/assets/CREDITS.md
 
 export type EventKind = "סרט" | "מופע";
 export const GENRES = {
@@ -34,7 +35,7 @@ const seed: State = {
     { id: "house-by-sea", title: "בית על הים", kind: "סרט", genre: "דרמה", venue: "סינמטק תל אביב", date: "2026-11-25T19:30", price: 38, seats: 70, image: ev3, description: "דרמה אינטימית על אחים שחוזרים לבית הילדות כדי להיפרד ממנו." },
     { id: "last-letters", title: "מכתבים אחרונים", kind: "סרט", genre: "דרמה", venue: "סינמטק הרצליה", date: "2026-12-09T20:15", price: 38, seats: 75, image: ev3, description: "סיפור אהבה שנכתב במכתבים, על פני שלושה עשורים." },
     { id: "lion-king", title: "מלך האריות", kind: "סרט", genre: "סרטי ילדים", venue: "סינמה סיטי, ירושלים", date: "2026-11-21T16:00", price: 36, seats: 180, image: lionKing, description: "סימבה הצעיר חייב למצוא את דרכו להיות מלך. הרפתקה מוזיקלית אהובה לכל המשפחה. מתאים מגיל 4." },
-    { id: "heidi", title: "היידי בת ההרים", kind: "סרט", genre: "סרטי ילדים", venue: "סינמטק תל אביב", date: "2026-11-28T11:00", price: 32, seats: 100, image: ev3, description: "ילדה קטנה מגיעה לחיות עם סבה בהרי האלפים, ומגלה את כוחה של חברות ושל טבע. מתאים מגיל 4." },
+    { id: "heidi", title: "היידי בת ההרים", kind: "סרט", genre: "סרטי ילדים", venue: "סינמטק תל אביב", date: "2026-11-28T11:00", price: 32, seats: 100, image: heidi, description: "ילדה קטנה מגיעה לחיות עם סבה בהרי האלפים, ומגלה את כוחה של חברות ושל טבע. מתאים מגיל 4." },
     { id: "pollyanna", title: "פוליאנה", kind: "סרט", genre: "סרטי ילדים", venue: "יס פלאנט, ראשון לציון", date: "2026-12-05T11:30", price: 32, seats: 120, image: ev4, description: "פוליאנה מלמדת עיירה שלמה את 'משחק השמחה' ומוכיחה שתמיד יש במה לשמוח. מתאים מגיל 5." },
     { id: "volt", title: "VOLT – לייב", kind: "מופע", genre: "רוק", venue: "היכל מנורה, תל אביב", date: "2026-12-03T21:30", price: 189, seats: 400, image: ev2, description: "להקת הרוק הלוהטת חוזרת עם מופע אורות ופירוטכניקה שלא נראה כמותו.", sponsored: true, sponsor: "קפה ליל", tagline: "ערב רוק בלתי נשכח – בחסות קפה ליל" },
     { id: "fire-steel", title: "אש ופלדה", kind: "מופע", genre: "רוק", venue: "בארבי, תל אביב", date: "2026-11-27T22:00", price: 120, seats: 250, image: ev2, description: "ערב רוק כבד ואנרגטי עם שלוש להקות ללא הפסקה." },
