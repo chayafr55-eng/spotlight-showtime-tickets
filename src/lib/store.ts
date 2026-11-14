@@ -6,7 +6,7 @@ import ev4 from "@/assets/ev4.jpg";
 
 export type EventKind = "סרט" | "מופע";
 export const GENRES = {
-  "סרט": ["מדע בדיוני", "מותחן", "קומדיה", "דרמה"],
+  "סרט": ["מדע בדיוני", "מותחן", "קומדיה", "דרמה", "סרטי ילדים"],
   "מופע": ["רוק", "סטנדאפ", "מוזיקה ישראלית", "ילדים ומשפחה"],
 } as const;
 export type Genre = (typeof GENRES)[EventKind][number];
@@ -32,6 +32,9 @@ const seed: State = {
     { id: "this-family", title: "המשפחה הזאת", kind: "סרט", genre: "קומדיה", venue: "גלילות, תל אביב", date: "2026-12-01T20:30", price: 40, seats: 150, image: ev4, description: "ארוחת שישי אחת, ארבעה דורות, אפס סודות. כמעט." },
     { id: "house-by-sea", title: "בית על הים", kind: "סרט", genre: "דרמה", venue: "סינמטק תל אביב", date: "2026-11-25T19:30", price: 38, seats: 70, image: ev3, description: "דרמה אינטימית על אחים שחוזרים לבית הילדות כדי להיפרד ממנו." },
     { id: "last-letters", title: "מכתבים אחרונים", kind: "סרט", genre: "דרמה", venue: "סינמטק הרצליה", date: "2026-12-09T20:15", price: 38, seats: 75, image: ev3, description: "סיפור אהבה שנכתב במכתבים, על פני שלושה עשורים." },
+    { id: "lion-king", title: "מלך האריות", kind: "סרט", genre: "סרטי ילדים", venue: "סינמה סיטי, ירושלים", date: "2026-11-21T16:00", price: 36, seats: 180, image: ev1, description: "סימבה הצעיר חייב למצוא את דרכו להיות מלך. הרפתקה מוזיקלית אהובה לכל המשפחה. מתאים מגיל 4." },
+    { id: "heidi", title: "היידי בת ההרים", kind: "סרט", genre: "סרטי ילדים", venue: "סינמטק תל אביב", date: "2026-11-28T11:00", price: 32, seats: 100, image: ev3, description: "ילדה קטנה מגיעה לחיות עם סבה בהרי האלפים, ומגלה את כוחה של חברות ושל טבע. מתאים מגיל 4." },
+    { id: "pollyanna", title: "פוליאנה", kind: "סרט", genre: "סרטי ילדים", venue: "יס פלאנט, ראשון לציון", date: "2026-12-05T11:30", price: 32, seats: 120, image: ev4, description: "פוליאנה מלמדת עיירה שלמה את 'משחק השמחה' ומוכיחה שתמיד יש במה לשמוח. מתאים מגיל 5." },
     { id: "volt", title: "VOLT – לייב", kind: "מופע", genre: "רוק", venue: "היכל מנורה, תל אביב", date: "2026-12-03T21:30", price: 189, seats: 400, image: ev2, description: "להקת הרוק הלוהטת חוזרת עם מופע אורות ופירוטכניקה שלא נראה כמותו.", sponsored: true, sponsor: "קפה ליל", tagline: "ערב רוק בלתי נשכח – בחסות קפה ליל" },
     { id: "fire-steel", title: "אש ופלדה", kind: "מופע", genre: "רוק", venue: "בארבי, תל אביב", date: "2026-11-27T22:00", price: 120, seats: 250, image: ev2, description: "ערב רוק כבד ואנרגטי עם שלוש להקות ללא הפסקה." },
     { id: "mic", title: "מיקרופון פתוח", kind: "מופע", genre: "סטנדאפ", venue: "קומדי בר, חיפה", date: "2026-11-20T22:00", price: 79, seats: 60, image: ev4, description: "ערב סטנדאפ עם חמשת הקומיקאים החמים של העונה. צחוק מובטח." },
